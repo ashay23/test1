@@ -1,3 +1,7 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
+
 name: Build and deploy Python app to Azure Web App - abc1
 
 on:
@@ -25,7 +29,7 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-
+        
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
@@ -57,15 +61,18 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E740F1C8BC63400192F9212D6FF9B94E }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_510C8B73E40E444B9A107AE229DE2E29 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3B302295C94340F89A3B2D20D2C5C2CE }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_5053C73AB20342E98821E4E38A9F3E91 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4AC6CB42B07745759FCA4E88FF6A31E9 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_AC836EC9C32B43A893B7419183B75B5A }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'abc1'
+          slot-name: 'Production'
+          
