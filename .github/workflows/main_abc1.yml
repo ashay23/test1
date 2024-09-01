@@ -74,5 +74,3 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'abc1'
-          slot-name: 'Production'
-          
